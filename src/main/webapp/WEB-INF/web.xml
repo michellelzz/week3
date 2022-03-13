@@ -7,6 +7,18 @@
         <servlet-name>1</servlet-name>
         <servlet-class>com.Wanyu.week2.demo.exec1</servlet-class>
     </servlet>
+    
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>com.Wanyu.week2.demo.RegisterServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+    
+    
+    
     <servlet-mapping>
         <servlet-name>1</servlet-name>
         <url-pattern>/end</url-pattern>

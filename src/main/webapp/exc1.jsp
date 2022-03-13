@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<form action="register.jsp" method="post">
+<form action="register" method="post">
     <table align="center">
         <tr>
             <td>新用户注册！ </td>
@@ -29,18 +29,18 @@
         </tr>
         <tr>
             <td>E-mail</td>
-            <td><input type="text" value="Correct message format"></td>
+            <td><input type="text" value="Correct message format" name="email"></td>
         </tr>
         <tr>
             <td>Birthday</td>
-            <td><input type="text" value="(yyyy-mm-dd)"></td>
+            <td><input type="text" value="(yyyy-mm-dd)" name="birthday"></td>
 
         </tr>
 
         <tr>
             <td>gender</td>
             <td>
-                <input type="radio" name="bachelor">female <input type="radio" name="master">male
+                <input type="radio" name="female">female <input type="radio" name="male">male
             </td>
         </tr>
         <tr>
