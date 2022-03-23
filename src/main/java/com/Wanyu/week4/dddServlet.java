@@ -1,25 +1,34 @@
-package com.Wanyu.week2.demo;
+package com.Wanyu.week4;
 
 import javax.servlet.*;
+import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.*;
+/*@WebServlet(name = "dddServlet",urlPatterns = {"/hhj"},
+        initParams = {
+        @WebInitParam(name="driver",value = "com.microsoft.sqlserver.jdbc.SQLServerDriver"),
+        @WebInitParam(name="url",value = "jdbc:sqlserver://localhost:1433;database=userwy;encrypt=false"),
+        @WebInitParam(name="username",value = "sa"),
+        @WebInitParam(name="password",value = "123456")
+        },
+        loadOnStartup = 1
+)*/
 
-
-public class RegisterServlet extends HttpServlet {
-    Connection con=null;
+@WebServlet(urlPatterns = "/hhj")
+public class dddServlet extends HttpServlet {
+Connection con=null;
+    @Override
     public void init() throws ServletException {
+        super.init();
 
-
-        // String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
-        // String url="jdbc:sqlserver://localhost:1433;database=userwy;encrypt=false";//dabatbase name is rigth?
-        //  String username="sa";
-        // String password="123456";
+       // String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
+       // String url="jdbc:sqlserver://localhost:1433;database=userwy;encrypt=false";//dabatbase name is rigth?
+      //  String username="sa";
+       // String password="123456";
 
   /*    ServletConfig config=getServletConfig();
 
@@ -44,41 +53,23 @@ public class RegisterServlet extends HttpServlet {
 
 
     }
+
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String id = request.getParameter("id");
-        String username =request.getParameter("username");
-        String password =request.getParameter("password");
-        String email =request.getParameter("email");
-        String birthday =request.getParameter("birthday");
-        String female =request.getParameter("female");
-        String male =request.getParameter("male");
+    }
 
-        PrintWriter writer= response.getWriter();
-        writer.println("<br>"+id);
-        writer.println("<br>"+username);
-        writer.println("<br>"+password);
-        writer.println("<br>"+email);
-        writer.println("<br>"+birthday);
-        writer.println("<br>"+female);
-        writer.println("<br>"+male);
-        writer.close();
-
-        try{
-            PreparedStatement ps=con.prepareStatement("insert into usertable values('"+id+"','"+username+"','"+password+"','"+email+"','"+birthday+"','"+female+"','"+male+"')") ;
-            ps.executeLargeUpdate();
-            ps.close();
+    @Override
+    public void  destroy(){
+        super.destroy();
+        try {
             con.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-
-
     }
 }

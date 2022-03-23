@@ -12,6 +12,7 @@
 </head>
 <body>
 
+
 <form action="register" method="post">
     <table align="center">
         <tr>
@@ -20,12 +21,16 @@
 
         </tr>
         <tr>
+            <td>id:</td>
+            <td><input type="text" name="id"></td>
+        </tr>
+        <tr>
             <td>UserName:</td>
-            <td><input type="text" name=name autofocus="autofocus" ></td>
+            <td><input type="text" name="username" autofocus="autofocus" ></td>
         </tr>
         <tr>
             <td>Password:</td>
-            <td><input type="text" name=password ></td>
+            <td><input type="text" name="password" ></td>
         </tr>
         <tr>
             <td>E-mail</td>
@@ -52,6 +57,6 @@
         </tr>
     </table>
 
-</form>>
+</form>
 </body>
 </html>
