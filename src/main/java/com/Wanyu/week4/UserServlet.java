@@ -25,7 +25,6 @@ import javax.servlet.http.HttpServletRequest;
 @WebServlet(name = "UserServlet", value = "/user")
 public class UserServlet extends HttpServlet {
     private static String jdbcDriver = "com.mysql.cj.jdbc.Driver";
-
     public static String jdbcUrl = "jdbc:mysql://localhost:3306/test?serverTimezone=UTC";
     public static String jdbcUser = "root";
     public static String jdbcPwd = "root";

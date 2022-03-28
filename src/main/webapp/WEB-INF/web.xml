@@ -31,11 +31,15 @@
         <servlet-name>RegisterServlet</servlet-name>
         <servlet-class>com.Wanyu.week2.demo.RegisterServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>HelloServlet</servlet-name>
+        <servlet-class>com.Wanyu.week1.HelloServlet</servlet-class>
+    </servlet>
 
-  <!-- <servlet>
-        <servlet-name>ConfigDemoServlet</servlet-name>
-        <servlet-class>com.Wanyu.week4.ConfigDemoServlet</servlet-class>
-    </servlet>-->
+    <servlet>
+          <servlet-name>ConfigDemoServlet</servlet-name>
+          <servlet-class>com.Wanyu.week4.ConfigDemoServlet</servlet-class>
+      </servlet>
 
 <!--    <servlet>
         <servlet-name>dddServlet</servlet-name>
@@ -72,12 +76,16 @@
         <servlet-name>1</servlet-name>
         <url-pattern>/end</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HelloServlet</servlet-name>
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
 
-    <!--<servlet-mapping>
+    <servlet-mapping>
         <servlet-name>ConfigDemoServlet</servlet-name>
         <url-pattern>/config</url-pattern>
     </servlet-mapping>
-    <servlet>
+  <!--  <servlet>
         <servlet-name>UserServlet</servlet-name>
         <servlet-class>com.Wanyu.week4.UserServlet</servlet-class>
     </servlet>

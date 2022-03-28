@@ -6,13 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
 
-
+<%@include file="header.jsp"%>
 <form action="register" method="post">
     <table align="center">
         <tr>
@@ -58,5 +53,4 @@
     </table>
 
 </form>
-</body>
-</html>
+<%@include file="footer.jsp"%>
