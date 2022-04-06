@@ -27,6 +27,7 @@ public class RegisterServlet extends HttpServlet {
         String url= config.getInitParameter("url");
         String username= config.getInitParameter("username");
         String password= config.getInitParameter("password");    */
+/*
 
         ServletContext context= getServletContext();
         String driver = context.getInitParameter("driver");
@@ -42,11 +43,12 @@ public class RegisterServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-
+*/
+     con= (Connection) getServletContext().getAttribute("con");
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        doPost(request,response);
     }
 
     @Override
@@ -59,21 +61,13 @@ public class RegisterServlet extends HttpServlet {
         String female =request.getParameter("female");
         String male =request.getParameter("male");
 
-        PrintWriter writer= response.getWriter();
-        writer.println("<br>"+id);
-        writer.println("<br>"+username);
-        writer.println("<br>"+password);
-        writer.println("<br>"+email);
-        writer.println("<br>"+birthday);
-        writer.println("<br>"+female);
-        writer.println("<br>"+male);
-        writer.close();
+
 
         try{
             PreparedStatement ps=con.prepareStatement("insert into usertable values('"+id+"','"+username+"','"+password+"','"+email+"','"+birthday+"','"+female+"','"+male+"')") ;
             ps.executeLargeUpdate();
             ps.close();
-            con.close();
+            response.sendRedirect("login.jsp");
         } catch (SQLException e) {
             e.printStackTrace();
         }

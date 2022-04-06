@@ -8,7 +8,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%@include file="header.jsp"%>
-    <title>Title</title>
+<%
+    if (!(request.getAttribute("message")==null)){
+        out.println(request.getAttribute("message"));
+    }
+%>
 <form action="Login" method="post">
     <table align="center">
     <tr>

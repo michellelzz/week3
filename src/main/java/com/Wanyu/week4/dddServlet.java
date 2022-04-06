@@ -20,10 +20,10 @@ import java.sql.SQLException;
 
 @WebServlet(urlPatterns = "/hhj")
 public class dddServlet extends HttpServlet {
-Connection con=null;
+/*Connection con=null;
     @Override
     public void init() throws ServletException {
-        super.init();
+        super.init();*/
 
        // String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
        // String url="jdbc:sqlserver://localhost:1433;database=userwy;encrypt=false";//dabatbase name is rigth?
@@ -37,7 +37,7 @@ Connection con=null;
         String username= config.getInitParameter("username");
         String password= config.getInitParameter("password");    */
 
-        ServletContext context= getServletContext();
+        /*ServletContext context= getServletContext();
         String driver = context.getInitParameter("driver");
         String username = context.getInitParameter("username");
         String url = context.getInitParameter("url");
@@ -52,18 +52,18 @@ Connection con=null;
         }
 
 
-    }
+}*/
 
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        System.out.println("i am in contextInitialized");
     }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     }
 
-    @Override
+   /* @Override
     public void  destroy(){
         super.destroy();
         try {
@@ -71,5 +71,5 @@ Connection con=null;
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 }
