@@ -1,14 +1,14 @@
 package com.Wanyu.week5.demo;
 
+import com.Wanyu.dao.UserDao;
+import com.Wanyu.model.User;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.*;
 
 @WebServlet(name = "LoginServlet", value = "/Login")
@@ -41,6 +41,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     doPost(request,response);
+        request.getRequestDispatcher("WEN-INF/views/login.jsp").forward(request,response);
     }
 
     @Override
@@ -49,9 +50,26 @@ public class LoginServlet extends HttpServlet {
         String username =request.getParameter("username");
         String password =request.getParameter("password");
         PrintWriter writer= response.getWriter();
+        UserDao userDao=new UserDao();
         try {
+           User user= userDao.findByUsernamePassword(con,username,password);
+           if(user!=null){
+               request.setAttribute("user",user);
+               request.getRequestDispatcher("WEB-INF/views/userInfo.jsp").forward(request,response);
+           }else{
+               request.setAttribute("message","username or password error");
+               request.getRequestDispatcher("WEB-INF/views/login.jsp").forward(request,response);
+           }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+       /*  try {
             Statement st=con.createStatement();
-            String sql ="SELECT * FROM usertable where username="+"'"+username+"'"+"and password="+"'"+password+"'";
+
+           String sql ="SELECT * FROM usertable where username="+"'"+username+"'"+"and password="+"'"+password+"'";
             ResultSet rs = st.executeQuery(sql);
 
             if (rs.next()==true){
@@ -72,6 +90,7 @@ public class LoginServlet extends HttpServlet {
 
         } catch (Exception e) {
             e.printStackTrace();
-        }
+
+        }*/
     }
 }
