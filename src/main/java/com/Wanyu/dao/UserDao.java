@@ -22,6 +22,8 @@ public class UserDao implements IUserDao{
 
     @Override
     public int updateUser(Connection con, User user) throws SQLException {
+        String id = null;
+        String sql ="UPDATE usertable  WHERE id="+"'"+id+"'"+"";
         return 0;
     }
 

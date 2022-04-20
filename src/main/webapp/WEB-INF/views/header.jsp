@@ -1,3 +1,4 @@
+<%@ page import="com.Wanyu.model.User" %>
 <html>
  <head>
    <title>My Online Shop</title>
@@ -24,7 +25,7 @@
                             border-top-width:0px;
                             border-color:black;" align="center">
      <a style="color:white;" href="home">Home</a>
-   - <a style="color:white;" href="login">Login</a>
+   - <a style="color:white;" href="Login">Login</a>
    - <a style="color:white;" href="productList">Product</a>
    - <a style="color:white;" href="#">FAQ</a>
    - <a style="color:white;" href="#">About</a>
@@ -32,10 +33,22 @@
    </td>
    </tr>
    <tr height="25"><td align="right"><font size="18" color="blue">
-   Welcome,<font size="18" color="red"> Guest</font>
+        Welcome,
+   <%
+   User user=(User) session.getAttribute("user");
+    if (user!=null){
+        out.println(user.getUsername());
+    }else{
+   %>
+       <font size="18" color="red"> Guest</font>
+       <%}%>
    </font></td> </tr>
   <tr height="20"><td align="right">
-   <br> <a href="#">Logout</a>
+<%
+if (session.getAttribute("user")!=null){
+%>
+      <br> <a href="logout">Logout</a>
+<%} %>
   <br><a href="#">My Cart</a><br/>
 <a href="exc1.jsp">Register Here</a>
   </td></tr>

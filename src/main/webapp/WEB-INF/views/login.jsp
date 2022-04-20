@@ -13,24 +13,30 @@
         out.print(request.getAttribute("message"));
     }
 %>
+<%
+ Cookie[] allCookies=request.getCookies();
+ String username="",password="",rememberMeVal="";
+ if (allCookies!=null){
+     for (Cookie c:allCookies) {
+         if (c.getName().equals("cUsername")){
+             username=c.getValue();
+         }
+         if (c.getName().equals("cPassword")){
+             password=c.getValue();
+         }
+         if (c.getName().equals("cRememberMe")){
+            rememberMeVal=c.getValue();
+         }
+     }
+ }
+%>
 <form action="Login" method="post">
-    <table align="center">
-    <tr>
-        <td>UserName:</td>
-        <td><input type="text" name="username" autofocus="autofocus" ></td>
-    </tr>
-    <tr>
-        <td>Password:</td>
-        <td><input type="text" name="password" ></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>
-            <input type="submit" value="submit">
-            <input type="reset" value="reset">
-        </td>
-    </tr>
-        </table>
+    UserName:<input type="text" name="username" autofocus="autofocus" value="<%=username%>"><br/>
+    Password:<input type="text" name="password" value="<%=password%>"><br/>
+    <input type="checkbox" name="rememberMe" value="1"<%=rememberMeVal.equals("1") ?"checked":""%>checked/>RememberMe<br/>
+    <input type="submit" value="submit">
+    <input type="reset" value="reset">
+
 </form>
 <%@include file="footer.jsp"%>
 

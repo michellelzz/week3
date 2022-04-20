@@ -17,7 +17,6 @@
         <td>birthday</td><td><%=request.getAttribute("birthday")%></td></tr><tr>
         <td>female</td><td><%=request.getAttribute("female")%></td></tr><tr>
         <td>male</td><td><%=request.getAttribute("male")%></td>
-
     </tr>
 
 

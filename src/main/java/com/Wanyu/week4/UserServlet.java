@@ -50,8 +50,6 @@ public class UserServlet extends HttpServlet {
         System.out.println(idcard_w);
         try {
             String sql ="SELECT * FROM usertable";
-
-
             ResultSet rs = st.executeQuery(sql);
             System.out.println("获取数据");
             while (rs.next()) {
