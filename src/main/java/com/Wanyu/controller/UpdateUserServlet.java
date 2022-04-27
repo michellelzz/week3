@@ -24,21 +24,20 @@ public class UpdateUserServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Connection con = (Connection) getServletContext().getAttribute("con");
+       /* Connection con = (Connection) getServletContext().getAttribute("con");
         int id =Integer.parseInt(request.getParameter("id"));//get id <input type="hidden" name="id" />
         String username =request.getParameter("username");//get Username <input type="text" name="username" />
         String password =request.getParameter("password");//get  password <input type="password" name="password" />
         String email =request.getParameter("email");//get <input type="text" name="email" />
         String female =request.getParameter("female");//get <input type="radio" name="gender"/>
         String male =request.getParameter("male");
-        Date birthdaty = Date.valueOf(request.getParameter("birthDate"));//get Birth Date <input type="text" name="birthDate" />
-        
+        Date birthday = Date.valueOf(request.getParameter("birthday"));//get Birth Date <input type="text" name="birthDate" />
         User u=new User();
         u.setId(id);
         u.setUsername(username);
         u.setPassword(password);
         u.setEmail(email);
-        u.setBirthday(birthdaty);
+        u.setBirthday(birthday);
         u.setFemale(female);
         u.setFemale(male);
         UserDao dao =new UserDao();
@@ -46,7 +45,7 @@ public class UpdateUserServlet extends HttpServlet {
             dao.updateUser(con,u);
         }catch (SQLException throwables) {
             throwables.printStackTrace();
-        }
+        }*/
 
         request.getRequestDispatcher("WEB-INF/views/userInfo.jsp").forward(request,response);
     }
