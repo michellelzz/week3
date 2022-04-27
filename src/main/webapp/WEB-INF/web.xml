@@ -33,7 +33,7 @@
     </servlet>
     <servlet>
         <servlet-name>HelloServlet</servlet-name>
-        <servlet-class>com.Wanyu.week1.HelloServlet</servlet-class>
+        <servlet-class>com.example.wanyu2020211001001425.HelloServlet</servlet-class>
     </servlet>
 
     <servlet>
@@ -95,6 +95,38 @@
     </servlet-mapping>-->
 <welcome-file-list>
     <welcome-file>home</welcome-file>
+
 </welcome-file-list>
-    
+    <filter>
+        <filter-name>HelloFilter</filter-name>
+        <filter-class>com.Wanyu.filter.HelloFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>HelloFilter</filter-name>
+        <url-pattern>/hello</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>loggerFilter</filter-name>
+        <filter-class>com.Wanyu.filter.loggerFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>loggerFilter</filter-name>
+        <url-pattern>/hello</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>AuthFilter</filter-name>
+        <filter-class>com.Wanyu.filter.AuthFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AuthFilter</filter-name>
+        <url-pattern>/hello</url-pattern>
+    </filter-mapping>
+
+
+
+
+
+
 </web-app>
