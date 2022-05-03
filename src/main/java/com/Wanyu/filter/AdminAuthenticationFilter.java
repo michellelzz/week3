@@ -9,7 +9,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebFilter("/admin/*")//this filter for all admin url
-class AdminAuthenticationFilter implements Filter {
+public class AdminAuthenticationFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
 

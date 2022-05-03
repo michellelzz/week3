@@ -11,7 +11,7 @@ import java.io.PrintWriter;
 import java.sql.*;
 import java.util.*;
 
-@WebServlet(name = "LoginServlet", value = "/Login")
+@WebServlet(name = "LoginServlet", value = "/login")
 public class LoginServlet extends HttpServlet {
     Connection con=null;
     @Override
@@ -41,7 +41,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     doPost(request,response);
-        request.getRequestDispatcher("WEN-INF/views/login.jsp").forward(request,response);
+        request.getRequestDispatcher("WEB-INF/views/login.jsp").forward(request,response);
     }
 
     @Override

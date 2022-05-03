@@ -18,8 +18,7 @@ User u=(User)session.getAttribute("user");
         <td>password</td><td><%=u.getPassword()%></td></tr><tr>
         <td>email</td><td><%=u.getEmail()%></td></tr><tr>
         <td>birthday</td><td><%=u.getBirthday()%></td></tr><tr>
-        <td>female</td><td><%=u.getFemale()%></td></tr><tr>
-        <td>male</td><td><%=u.getMale()%></td></tr><tr>
+        <td>gender</td><td><%=u.getGender()%></td></tr><tr>
         <td><a href="UpdateUser.jsp">Update</a></td>
     </tr>
 </table>

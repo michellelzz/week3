@@ -11,20 +11,19 @@ public class User {
     private String password;
     private String email;
     private java.util.Date birthday;
-    private String female;
-    private String male;
+    private String gender;
 
     public User() {
     }
 
-    public User(int id, String username, String password, String email, Date birthday, String female, String male) {
+    public User(int id, String username, String password, String email, Date birthday, String gender) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.email = email;
         this.birthday = birthday;
-        this.female = female;
-        this.male = male;
+        this.gender = gender;
+
     }
 
     public int getId() {
@@ -67,21 +66,15 @@ public class User {
         this.birthday = birthday;
     }
 
-    public String getFemale() {
-        return female;
+    public String getGender() {
+        return gender;
     }
 
-    public void setFemale(String female) {
-        this.female = female;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
-    public String getMale() {
-        return male;
-    }
 
-    public void setMale(String male) {
-        this.male = male;
-    }
 
     @Override
     public String toString() {
@@ -91,8 +84,7 @@ public class User {
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", birthday=" + birthday +
-                ", female='" + female + '\'' +
-                ", male='" + male + '\'' +
+                ", gender='" + gender + '\'' +
                 '}';
     }
 }

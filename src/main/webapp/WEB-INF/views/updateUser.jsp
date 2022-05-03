@@ -42,8 +42,7 @@ User u=(User) session.getAttribute("user");
     <tr>
       <td>gender</td>
       <td>
-        <input type="radio" name="female" value="female"<%="female".equals(u.getFemale())?"check":""%>>female
-        <input type="radio" name="male" value="female"<%="male".equals(u.getMale())?"check":""%>>male
+        <input type="radio" name="gender" value="gender"<%="gender".equals(u.getGender())?"check":""%>>gender
       </td>
     </tr>
     <tr>

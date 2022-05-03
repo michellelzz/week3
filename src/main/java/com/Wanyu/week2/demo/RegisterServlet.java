@@ -10,7 +10,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.*;
 
-
+@WebServlet(urlPatterns = {"/register"},loadOnStartup = 1)
 public class RegisterServlet extends HttpServlet {
     Connection con=null;
     public void init() throws ServletException {
@@ -48,7 +48,8 @@ public class RegisterServlet extends HttpServlet {
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doPost(request,response);
+       //request.getRequestDispatcher("WEN-INF/views/register.jsp").forward(request,response);
+        request.getRequestDispatcher("WEB-INF/views/register.jsp").forward(request,response);
     }
 
     @Override
@@ -57,17 +58,17 @@ public class RegisterServlet extends HttpServlet {
         String username =request.getParameter("username");
         String password =request.getParameter("password");
         String email =request.getParameter("email");
-        String birthday =request.getParameter("birthday");
-        String female =request.getParameter("female");
-        String male =request.getParameter("male");
+        String birthday =request.getParameter("birthdate");
+        String gender =request.getParameter("gender");
+
 
 
 
         try{
-            PreparedStatement ps=con.prepareStatement("insert into usertable values('"+id+"','"+username+"','"+password+"','"+email+"','"+birthday+"','"+female+"','"+male+"')") ;
+            PreparedStatement ps=con.prepareStatement("insert into usertable values('"+id+"','"+username+"','"+password+"','"+email+"','"+birthday+"','"+gender+"')") ;
             ps.executeLargeUpdate();
             ps.close();
-            response.sendRedirect("login.jsp");
+            response.sendRedirect("login");
         } catch (SQLException e) {
             e.printStackTrace();
         }
