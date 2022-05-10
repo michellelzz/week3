@@ -12,9 +12,9 @@
 }%>
 <%
     Cookie[] cookies=request.getCookies();
-    String username="2";
-    String password="2";
-    String rememberMe="1";
+    String username="";
+    String password="";
+    String rememberMe="";
     if (cookies!=null){
         for (Cookie cookie:cookies){
             if (cookie.getName().equals("cUsername")){
