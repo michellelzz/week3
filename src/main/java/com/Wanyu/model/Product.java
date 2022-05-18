@@ -21,6 +21,12 @@ public class Product {
         this.categoryId = categoryId;
     }
 
+    public static void serPrice(double price) {
+    }
+
+    public static void setCategory(int categoryId) {
+    }
+
     public int getProductId() {
         return productId;
     }
@@ -41,7 +47,7 @@ public class Product {
         return productDescription;
     }
 
-    public void setProductDescription(String productDescription) {
+    public static void setProductDescription(String productDescription) {
         this.productDescription = productDescription;
     }
 
