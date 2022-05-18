@@ -49,6 +49,7 @@ public class ProductDao implements  IProductDao{
         ResultSet rs=pt.executeQuery();
         Product product=new Product();
         while (rs.next()) {
+
             product.setProductId(rs.getInt("ProductId"));
             product.setProductName(rs.getString("ProductName"));
             Product.setProductDescription(rs.getString("ProductDescription"));
