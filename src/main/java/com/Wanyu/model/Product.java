@@ -47,7 +47,7 @@ public class Product {
         return productDescription;
     }
 
-    public static void setProductDescription(String productDescription) {
+    public void setProductDescription(String productDescription) {
         this.productDescription = productDescription;
     }
 
