@@ -22,7 +22,7 @@ public class Product {
     }
 
     public static void serPrice(double price) {
-    }
+}
 
     public static void setCategory(int categoryId) {
     }
