@@ -36,7 +36,7 @@ public class AddProductServlet extends HttpServlet {
         String productDescription =request. getParameter(" productDescription");
 //get picture
         InputStream inputStream=null;
-        Part fileParts=request . getPart( "picture");
+        Part fileParts=request.getPart( "picture");
         inputStream=fileParts.getInputStream();
 //set into model
         Product product=new Product();

@@ -50,6 +50,7 @@ public class ProductDao implements  IProductDao{
         Product product=new Product();
 
         while (rs.next()) {
+
             product.setProductId(rs.getInt("ProductId"));
             product.setProductName(rs.getString("ProductName"));
             Product.serPrice(rs.getDouble("Price"));
