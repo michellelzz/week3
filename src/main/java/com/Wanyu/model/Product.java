@@ -35,6 +35,7 @@ public class Product {
         this.productId = productId;
     }
 
+
     public String getProductName() {
         return productName;
     }
@@ -43,13 +44,11 @@ public class Product {
         this.productName = productName;
     }
 
+
     public String getProductDescription() {
         return productDescription;
     }
-
-    public void setProductDescription(String productDescription) {
-        this.productDescription = productDescription;
-    }
+    public void setProductDescription(String productDescription) { this.productDescription = productDescription;}
 
     public InputStream getPicture() {
         return picture;
