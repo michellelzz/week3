@@ -11,33 +11,33 @@
     <title>validate</title>
 </head>
 <body>
-   //<%--Todo 1: Use <jsp:useBean> to create a Login bean instance in request scope --%>
 
-   // <%--Todo 2: Use <jsp:setProperty> to set  beans' property username and password--%>
-
-
-
+<%--Todo 1: Use <jsp:useBean> to create a Login bean instance in request scope --%>
+<jsp:useBean id="login" class="com.Wanyu.week10.demo.StringBean" scope="session"></jsp:useBean>
+<%--Todo 2: Use <jsp:setProperty> to set  beans' property username and password--%>
 <%
-   //todo 3: use if check username is admin and ppassword is admin
-    if (login.getUsername().equals("admin") && login.getPassword().equals("admin"))
+
 %>
 
 
-    //<%--todo 4: use jsp:forward to welcome.jsp page--%>
-    <jsp:forward page="welcome.jsp">
-   // <%--todo 5: else part{ --%>
-
-
-
-
-
-<%
-// todo 6: print username or password error message
-
+<%  //if (login.getUsername().equals("admin") && login.getPassword().equals("admin"))
+    String username=request.getParameter("username");
+    String password=request.getParameter("password");
+    if("admin".equals(username)&&"admin".equals(password)){
 %>
-    //<%--todo 7: use jsp:include login.jsp page --%>
+<jsp:setProperty property="username" name="login"></jsp:setProperty>
+<jsp:setProperty property="password" name="login"></jsp:setProperty>
+<%
 
-    //<%--todo 8: close else --%>
+        response.sendRedirect("welcome.jsp");
+        //request.getRequestDispatcher("/Lab2/welcome.jsp").forward(request,response);
+    }else{
+        response.sendRedirect("login.jsp");
+        //response.sendRedirect(request.getContextPath()+"/Lab2/login.jsp");
+    }
+%>
+
+
 
 </body>
 </html>

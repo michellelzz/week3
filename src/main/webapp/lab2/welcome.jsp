@@ -12,11 +12,12 @@
     <title>Welcome</title>
 </head>
 <body>
-<h2>Welcome,
+<jsp:useBean id="login" class="com.Wanyu.week10.demo.StringBean" scope="session"></jsp:useBean>
+<h2>Welcome,<jsp:getProperty property="username" name="login"/>
     <%--todo 9 : use jsp:useBean to access the same instance of login bean from request scope--%>
-    
+
     <%--todo 10 : use jsp:getProperty to display username --%>
-    
+
 </h2>
 </body>
 </html>
