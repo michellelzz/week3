@@ -22,13 +22,35 @@ public class UserDao implements IUserDao{
 
     @Override
     public int updateUser(Connection con, User user) throws SQLException {
+
         String id = null;
         String sql ="UPDATE usertable  WHERE id="+"'"+id+"'"+"";
         return 0;
-    }
 
+    }
+   /* @Override
+    public int updateUser(Connection con, User user) throws SQLException {
+        int id = user.getId();
+        String username = user.getUsername();
+        String password = user.getPassword();
+        String email = user.getEmail();
+        String gender = user.getGender();
+        Date birthday = user.getBirthday();
+        int rs = 0;
+        try {
+            String sql = "update usertable set email=? where id = ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.executeUpdate();
+            rs= ps.executeUpdate();
+            con.close();
+            ps.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return rs;
+    }*/
     @Override
-    public User findById(Connection con, Integer id) throws SQLException {
+    public  User findById(Connection con, Integer id) throws SQLException {
         return null;
     }
 

@@ -14,40 +14,52 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.*;
+import java.time.LocalDate;
 
 @WebServlet(name = "UpdateUserServlet", value = "/UpdateUser")
 public class UpdateUserServlet extends HttpServlet {
+    Connection con =null;
+    @Override
+    public  void init() throws ServletException {
+        super.init();
+        con=(Connection) getServletContext().getAttribute("con");
+    }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("WEB-INF/views/updateUser.jsp").forward(request,response);
     }
 
-    @Override
+    /*@Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-       /* Connection con = (Connection) getServletContext().getAttribute("con");
-        int id =Integer.parseInt(request.getParameter("id"));//get id <input type="hidden" name="id" />
-        String username =request.getParameter("username");//get Username <input type="text" name="username" />
-        String password =request.getParameter("password");//get  password <input type="password" name="password" />
-        String email =request.getParameter("email");//get <input type="text" name="email" />
-        String female =request.getParameter("female");//get <input type="radio" name="gender"/>
-        String male =request.getParameter("male");
-        Date birthday = Date.valueOf(request.getParameter("birthday"));//get Birth Date <input type="text" name="birthDate" />
-        User u=new User();
+        *//* Connection con = (Connection) getServletContext().getAttribute("con");*//*
+        int id = Integer.parseInt(request.getParameter("id"));//get id <input type="hidden" name="id" />
+        String username = request.getParameter("username");//get Username <input type="text" name="username" />
+        String password = request.getParameter("password");//get  password <input type="password" name="password" />
+        String email = request.getParameter("email");//get <input type="text" name="email" />
+        String gender = request.getParameter("gender");//get <input type="radio" name="gender"/>
+        String birthday = request.getParameter("birthday");//get Birth Date <input type="text" name="birthDate" />
+
+        User u = new User();
         u.setId(id);
         u.setUsername(username);
         u.setPassword(password);
         u.setEmail(email);
-        u.setBirthday(birthday);
-        u.setFemale(female);
-        u.setFemale(male);
-        UserDao dao =new UserDao();
-        try{
-            dao.updateUser(con,u);
-        }catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }*/
+        u.setBirthday(dateutil.converStringToUtil(birthday));
+        u.setGender(gender);
 
-        request.getRequestDispatcher("WEB-INF/views/userInfo.jsp").forward(request,response);
-    }
+        UserDao dao = new UserDao();
+        try {
+            int n = UserDao.updateUser(con, user);//updateUser(con,user);
+            User updateUser = UserDao.findById(con, id);
+            HttpSession session = request.getSession();
+            session.removeAttribute("user");
+            session.setAttribute("user", updateUser);
+            request.getRequestDispatcher("WEB-INF/views/userInfo.jsp").forward(request, response);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+    }*/
 }
 
