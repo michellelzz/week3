@@ -31,7 +31,7 @@ public class OrderServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Payment> paymentList=Payment.findAllPayment(con);
-        request.setAttribute("paymanetList",paymentList);
+        request.setAttribute("paymentList",paymentList);
         String path="/WEB-INF/views/order.jsp";
         request.getRequestDispatcher(path).forward(request,response);
     }
